@@ -1,0 +1,2 @@
+class ShipJob < ApplicationRecord
+end
