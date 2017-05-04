@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :home
   resources :job
   resources :ship_job
+  resources :ship
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
