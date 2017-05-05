@@ -1,4 +1,11 @@
 class HomeController < ApplicationController
-  def index
+  def new
+    @home = Home.new
   end
+
+  def index
+
+  end
+
+  
 end

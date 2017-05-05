@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   resources :home
-  resources :job
-  resources :ship_job
-  resources :ship
+  resources :jobs
+  resources :ship_jobs
+  resources :ships
 
 
   devise_for :users, :controllers => { registrations: 'registrations' }
