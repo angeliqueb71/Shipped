@@ -1,36 +1,36 @@
 <!-- <h1>Job#new</h1>
-<p>Find me in app/views/job/new.html.erb</p> -->
+<p>Find me in app/views/jobs/new.html.erb</p> -->
 
 <h2>New Job</h2>
 
+
+
   <%= form_for @job do |f| %>
 
-
   <div class="field">
-    <%= f.label :Ship_Name %><br />
-    <%= f.text_field :title, autofocus: true %> <br />
     <%= f.label :Description %><br />
     <%= f.text_area :body %> <br />
     <%= f.label :Origin %><br />
-    <%= f.text_field :location %><br />
+    <%= f.select :title, ['New York', 'California', 'Florida', 'France', 'Canada', 'Texas', 'China'] %><br />
     <%= f.label :Destination %><br />
-    <%= f.text_field :location %><br />
+    <%= f.select :location, ['New York', 'California', 'Florida', 'France', 'Canada', 'Texas', 'China'] %><br />
   </div>
 
-  <div class="field">
-    <%= f.label :Container_Amount %><br />
-    <%= f.text_field :container, autofocus: true %>
-  </div>
+  <p><%= f.label "Add Ship" %>
+     <%= f.collection_check_boxes :ship_ids, Ship.all, :id, :name %>
 
-
-  <div class="field">
+  </p>
+  <p>
+    <%= f.label :Containers %><br />
+    <%= f.number_field :container, :placeholder => "Total Containers" %>
+  </p>
     <%= f.label :Cost %><br />
-    <%= f.text_field :cost, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Submit" %>
-  </div>
- <% end %>
+    <%=f.number_field :cost, :placeholder => "Total Cost" %>
+  <p>
+    <%= f.submit "Create Job" %>
+  </p>
+<% end %>
+</div>
+<br><br><br>
 
  <%= link_to 'Back', root_path %>

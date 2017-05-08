@@ -1,11 +1,6 @@
 class HomeController < ApplicationController
-  def new
-    @home = Home.new
-  end
 
   def index
-
+    @jobs =Job.all
   end
-
-  
 end

@@ -1,2 +1,31 @@
 <h1>Job#show</h1>
-<p>Find me in app/views/job/show.html.erb</p>
+<p>Find me in app/views/jobs/show.html.erb</p>
+
+<p>
+  <strong>Job Description</strong>
+  <%= @job.body %>
+</p>
+
+<p>
+  <strong>Job Origin:</strong>
+  <%= @job.title %>
+</p>
+
+<p>
+  <strong>Destination:</strong>
+  <%= @job.location %>
+</p>
+
+<p>
+  <strong>Containers:</strong>
+  <%= @job.container %>
+</p>
+
+<p>
+  <strong>Job Cost:</strong>
+  <%= @job.cost %>
+</p>
+
+<%= link_to 'Back', root_path %>  |
+<%= link_to 'Create a new job', new_job_path %>  |
+<%= link_to 'New Ship', new_ship_path %>

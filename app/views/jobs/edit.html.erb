@@ -1,2 +1,35 @@
 <h1>Job#edit</h1>
 <p>Find me in app/views/job/edit.html.erb</p>
+
+
+
+<% if @job.errors.full_messages.any? %>
+<ul>
+  <% @job.errors.full_messages.each do |error_message| %>
+  <li><%= error_message %></li> <br />
+  <% end %>
+</ul>
+<% end %>
+
+<%= form_for @job, remote:true do |f| %>
+<%= f.label :Description %>
+<%= f.text_area :body %>
+<%= f.label :Origin %>
+<%= f.select :location, ['New York', 'California', 'Florida', 'France', 'Canada', 'Texas', 'China'] %>
+<%= f.label :Destination %>
+<%= f.select :location, ['New York', 'California', 'Florida', 'France', 'Canada', 'Texas', 'China'] %>
+<%= f.label :cost %>
+<%= f.text_field :cost %>
+<%= f.label :Containers %>
+<%= f.number_field :container %>
+<%= f.submit %>
+<% end %>
+
+
+
+
+<h3>Cancel my account</h3>
+
+<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
+
+<%= link_to "Back", :back %>

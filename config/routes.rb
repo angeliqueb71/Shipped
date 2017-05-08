@@ -1,12 +1,11 @@
 Rails.application.routes.draw do
-  resources :home
-  resources :jobs
-  resources :ship_jobs
-  resources :ships
 
-
-  devise_for :users, :controllers => { registrations: 'registrations' }
+devise_for :users, :controllers => { registrations: 'registrations' }
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: "home#index"
-
+  resources :home
+  resources :jobs
+  resources :ships
+  resources :ship_jobs
+  
 end

@@ -1,3 +1,19 @@
 <h1>Job#index</h1>
 
-<%= link_to 'Back', root_path %>
+<h1> Jobs </h1>
+<% @jobs.each do |job| %>
+  <tr>
+    <td><%= job.title %></td><br>
+
+    <td><%= job.body %></td><br>
+
+    <td><%= link_to 'Show', job_path(job) %></td>
+  </tr>
+
+
+
+  <%= link_to 'Edit', edit_job_path(job) %>
+  <%= link_to 'Destroy', job_path(job),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+<% end %>

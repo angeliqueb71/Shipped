@@ -1,2 +1,19 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<!-- <h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p> -->
+
+<h1 id="jobs"> Job Post </h1>
+
+ <% @jobs.each do |job| %>
+    <p id="homejobs">
+      <p><strong> | Cost: </strong></p>
+      <%= job.cost %>
+      <p><strong> | Origin: </strong></p>
+      <%= job.title %>
+      <p><strong> | Destination: </strong></p>
+      <%= job.location %>
+      <%= link_to 'View', job_path(job) %>
+      <%= link_to 'Edit', edit_job_path(job) %>
+      <%= link_to 'Remove', root_path, method: :delete %><br>
+      <hr>
+    </p>
+    <% end %>

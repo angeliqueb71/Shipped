@@ -1,2 +1,31 @@
 <h1>Ship#show</h1>
-<p>Find me in app/views/ship/show.html.erb</p>
+<p>Find me in app/views/ships/show.html.erb</p>
+
+<h3>Ship Info</h3>
+
+<p> Avatar: <%= @ship.avatar(:medium) %> </p>
+
+<p>
+  <strong>Ship Name: </strong>
+  <%= @ship.name %>
+</p>
+
+<p>
+  <strong>Container Amount: </strong>
+  <%= @ship.container %>
+</p>
+
+<p>
+  <strong>Destination: </strong>
+  <%= @ship.location %>
+</p>
+
+
+<%= link_to 'Back', root_path %>  |
+<%= link_to 'Create a new job', new_job_path %>  |
+<%= link_to 'New Ship', new_ship_path %>
+
+<h3>Jobs</h3>
+<% @ship.jobs.each do |job| %>
+<%= link_to job.body, job_path(job) %><br>
+<% end %>

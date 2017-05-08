@@ -3,29 +3,38 @@
 
 <h2>New Ship</h2>
 
-  <%= form_for @ship do |f| %>
+  <%= form_for @ship, :html => { :multipart => true } do |f| %>
 
 
   <div class="field">
     <%= f.label :Ship %><br />
     <%= f.text_field :name, autofocus: true %> <br />
+    <%= f.file_field :avatar %>
   </div>
 
   <div class="field">
     <%= f.label :Container_Amount %><br />
-    <%= f.text_field :container, autofocus: true %>
+    <%= f.number_field :container, autofocus: true %>
   </div>
 
 
   <div class="field">
     <%= f.label :Location %><br />
-    <%= f.text_field :location, autofocus: true %>
+    <%= f.select :location, ['New York', 'California', 'Florida', 'France', 'Canada', 'Texas', 'China'] %><br /><br />
+    <%= f.file_field :photo %><br><br />
+    <%= f.collection_check_boxes(:job_ids, Job.all, :id, :body) do |b| %><br /><br />
+    <%= b.label class:'label-checkbox' do %><br /><br />
+    <%= b.check_box + b.text%>
+
+      <% end %>
+    <% end %>
+
   </div>
 
   <div class="actions">
     <%= f.submit "Submit" %>
   </div>
- <% end %>
+ <% end %><br />
 
- <%= link_to 'Back', root_path %>
- <%= link_to 'Profile', root_path %>
+ <%= link_to 'Back', root_path %><br />
+ <%= link_to 'Profile', ships_path %>
